@@ -2,11 +2,11 @@ package com.csinfotechbd.users;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
-
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
+import org.hibernate.sql.JoinType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -15,52 +15,34 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class UserDao {
-	
-	@Autowired
-	private EntityManager entityManager;
 
+	@Autowired
+	private SessionFactory _sessionFactory;
+
+	private Session getSession() {
+		return _sessionFactory.getCurrentSession();
+	}
+
+	@SuppressWarnings("unchecked")
 	public List<User> findAllUser() {
-		CriteriaBuilder builder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<User> query = builder.createQuery(User.class);
-		Root<User> root = query.from(User.class);
-		query.select(root);
-		List<User> users = entityManager.createQuery(query).getResultList();
+		Criteria criteria = getSession().createCriteria(User.class, "u");
+		List<User> users = criteria.list();
 		return users;
 	}
 
 	public User findById(long id) {
-		CriteriaBuilder builder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<User> query = builder.createQuery(User.class);
-		
-		Root<User> root = query.from(User.class);
-		query.select(root);
-		query.where(builder.equal(root.get(User_.userId), id));
-		User user = entityManager.createQuery(query).getSingleResult();
-		return user;
+		Criteria criteria = getSession().createCriteria(User.class, "u");
+		criteria.add(Restrictions.eq("u.userId", id));
+		User u = (User) criteria.uniqueResult();
+		return u;
 	}
 
-	public void saveUser(User user) {
-		entityManager.persist(user);
-	}
-
-	public void updateUser(User user) {
-		User u = entityManager.find(User.class, user.getUserId());
-		u.setFirstName("ABC");
-		entityManager.flush();
-	}
-
-	public void deleteUser(User user) {
-		entityManager.remove(user);
-	}
-	
 	public User findUserAndRolesByUsername(String username) {
-		CriteriaBuilder builder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<User> query = builder.createQuery(User.class);
-		Root<User> root = query.from(User.class);
-		//ListJoin<User, Role> join = root.join(User_.roles);
-		query.where(builder.equal(root.get(User_.username), username));
-		User user = entityManager.createQuery(query).getSingleResult();
-		return user;
+		Criteria criteria = getSession().createCriteria(User.class, "u");
+		criteria.createAlias("u.roles", "r", JoinType.INNER_JOIN);
+		criteria.add(Restrictions.eq("u.username", username));
+		User u = (User) criteria.uniqueResult();
+		return u;
 	}
 
 }

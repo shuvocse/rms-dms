@@ -37,37 +37,29 @@ import lombok.Setter;
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Setter
-	@Getter
+
 	private Integer userId;
 	@Column(length = 50, nullable = false, unique = true)
-	@Setter
-	@Getter
+
 	private String username;
 	@Column(length = 25, nullable = false)
-	@Setter
-	@Getter
+
 	private String firstName;
 	@Column(length = 25, nullable = false)
-	@Setter
-	@Getter
+
 	private String lastName;
-	@Setter
-	@Getter
+
 	private String password;
-	@Setter
-	@Getter
+
 	private boolean active;
-	@ManyToMany(cascade=CascadeType.DETACH)
+	@ManyToMany(cascade = CascadeType.DETACH)
 	@JoinTable(name = "dms_tb_j_users_roles", joinColumns = { @JoinColumn(name = "userId") }, inverseJoinColumns = {
 			@JoinColumn(name = "roleId") })
-	@Setter
-	@Getter
+
 	private List<Role> roles = new ArrayList<>();
-	@Setter
-	@Getter
+
 	@ManyToMany(mappedBy = "users", cascade = CascadeType.DETACH)
-	private List<Document> docEntities = new ArrayList<>();
+	private List<Document> documents = new ArrayList<>();
 
 	public User(int userId) {
 		this.userId = userId;
@@ -78,6 +70,70 @@ public class User {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.password = password;
+	}
+
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
+
+	public List<Document> getDocuments() {
+		return documents;
+	}
+
+	public void setDocuments(List<Document> documents) {
+		this.documents = documents;
 	}
 
 }

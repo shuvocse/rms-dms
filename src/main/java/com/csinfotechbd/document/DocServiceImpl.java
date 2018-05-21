@@ -100,9 +100,9 @@ public class DocServiceImpl implements DocService{
 		return docDao.getAllDocument();
 	}
 	@Override
-	public void getFile(long fileId) {
+	public void getFile(int fileId) {
 		try{
-			Document doc = docDao.findFileByFileId(fileId);
+			Document doc = docDao.getDocsById(fileId);
 			String filePath = IMAGE_DIRECTORY+File.separator+doc.getUrl();
 			//asyncService.getFileFromStorage("");
 			System.out.println(filePath);

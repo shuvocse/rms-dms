@@ -15,7 +15,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import com.csinfotechbd.roles.Role;
 import com.csinfotechbd.users.User;
 import com.csinfotechbd.users.UserDao;
 
