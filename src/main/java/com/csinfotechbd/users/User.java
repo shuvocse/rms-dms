@@ -14,15 +14,11 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.DynamicUpdate;
-
 import com.csinfotechbd.document.Document;
 import com.csinfotechbd.roles.Role;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 /**
  * 
@@ -33,7 +29,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name = "dms_tb_s_users")
-@DynamicUpdate
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

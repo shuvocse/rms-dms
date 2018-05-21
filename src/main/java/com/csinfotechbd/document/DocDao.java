@@ -1,12 +1,7 @@
 package com.csinfotechbd.document;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
 import org.hibernate.Criteria;
@@ -16,8 +11,6 @@ import org.hibernate.criterion.Restrictions;
 import org.hibernate.sql.JoinType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import com.csinfotechbd.users.User;
 
 @Repository
 @Transactional
