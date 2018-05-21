@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>rms</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div style="margin-bottom: 35px;">
+                <h2>Add Record</h2>
+            </div>
+
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="inputEmail4">Country</label>
+                        <select id="inputState" class="form-control">
+                            <option selected>Bangladesh</option>
+                            <option>America</option>
+                            <option>Canada</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputPassword4">Zone</label>
+                        <select id="inputState" class="form-control">
+                            <option selected>Dhaka</option>
+                            <option>Shariatpur</option>
+                            <option>khulna</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputPassword4">Warehouse</label>
+                        <select id="inputState" class="form-control">
+                            <option selected>Janata Tower</option>
+                            <option>BDBL</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputState">Center</label>
+                        <select id="inputState" class="form-control">
+                            <option selected>F001</option>
+                            <option>F002</option>
+                            <option>F003</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="inputEmail4">Row No</label>
+                        <select id="inputEmail4" class="form-control">
+                            <option selected>R001</option>
+                            <option>R002</option>
+                            <option>R003</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputPassword3">Column No</label>
+                        <select id="inputPassword3" class="form-control">
+                            <option selected>CLM001</option>
+                            <option>CLM002</option>
+                            <option>ClM003</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputPassword5">Shelf No</label>
+                        <select id="inputPassword5" class="form-control">
+                            <option selected>SH001</option>
+                            <option>SH002</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputPassword4">Box No</label>
+                        <select id="inputPassword4" class="form-control">
+                            <option selected>B001</option>
+                            <option>B002</option>
+                            <option>B003</option>
+                        </select>
+                    </div>
+                </div>
+                <hr>
+
+
+
+                <h4 align="center" style="padding:10px">File Information</h4>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Serial No</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Serial number" required>
+                    <small id="emailHelp" class="form-text text-muted">This serial number must from file and unique</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">File Title</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="File Title" required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleSelect1">Category</label>
+                    <select class="form-control" id="exampleSelect1">
+                        <option>Business Letters</option>
+                        <option>Business Reports</option>
+                        <option>Transactional Documents</option>
+                        <option>Financial Documents</option>
+                        <option>Invoice</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleSelect1">Type</label>
+                    <select class="form-control" id="type">
+                        <option>Pdf</option>
+                        <option>Doc</option>
+                        <option>CVS</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleTextarea">Comment</label>
+                    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                </div>
+                <fieldset class="form-group">
+                    <legend>Radio buttons</legend>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                            Read Only
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                            Read / Write
+                        </label>
+                    </div>
+                    <div class="form-check disabled">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3">
+                            Fully control
+                        </label>
+                    </div>
+                </fieldset>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input">
+                        Modify Notification
+                    </label>
+                </div>
+
+                <a href="/rms/record/home" class="btn btn-primary" role="button">Back</a>
+                <button type="submit" class="btn btn-success my-1">Save Record</button>
+            </form>
+
+        </div>
+
+
+    </div>
+    <div style="height:200px"></div>
+</div>
+<!-- /container -->
+
+
+
+
+
+
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>

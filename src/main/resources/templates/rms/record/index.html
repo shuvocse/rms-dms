@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>rms</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+
+        <div class="col-md-10 col-md-offset-1">
+            <div style="margin-bottom: 35px;">
+                <h2>Current Record</h2>
+            </div>
+            <a href="/rms/record/add" class="btn btn-info" role="button">Add Record</a>
+            <a href="/rms/record/advanceSearch" class="btn btn-info" role="button">Advance Search</a>
+            <form class="form-inline pull-right" style="margin-bottom: 20px;">
+
+
+                <div class="form-group">
+                    <label for="dfd"></label>
+                    <input type="text" class="form-control" id="dfd" placeholder="Search by Serial No">
+
+                </div>
+                <div class="form-group">
+                    <label for="pwd"></label>
+                    <input type="text" class="form-control" id="pwd" placeholder="Search by File Title">
+                </div>
+            </form>
+            <table class="table table-condensed">
+                <thead>
+                <tr>
+                    <th>Serial Id</th>
+                    <th>File Title</th>
+                    <th>Category</th>
+                    <th>Last update</th>
+                    <th>Location</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Bill-EC001</td>
+                    <td>Electrical bill</td>
+                    <td>Bill</td>
+                    <td>01/06/2018</td>
+
+                    <td>
+                        <button><span  class="glyphicon glyphicon-plus-sign button" data-toggle="collapse" data-target="#collapseExampleOne" aria-expanded="false" aria-controls="collapseExample">
+	 Shelf No SH025, Box No B02548</span>
+                        </button>
+                        <div class="collapse" id="collapseExampleOne" style="margin-top: 5px;">
+                            <div class="card bg-info text-white">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">EC001</div>
+                                    <div class="panel-body">
+                                        <i class="glyphicon glyphicon-home"></i> Record Center: <b>Janata Tower</b>
+                                        <div style=" margin-left: 20px; padding: 10px;">
+                                            <i class="glyphicon glyphicon-th-list"></i> Row No: <b>R-04</b>, Column No: <b>CLM-0218</b>
+                                        </div>
+                                        <div style=" margin-left: 50px;">
+                                            <i class="glyphicon glyphicon-inbox"></i> Shelf No: <b>SH025</b>, Box No: <b>B02548</b>
+                                        </div>
+                                        <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#myModal">Full Specification</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Bill-PN001</td>
+                    <td>Phone bill</td>
+                    <td>Bill</td>
+                    <td>01/06/2018</td>
+                    <td>
+                        <button><span  class="glyphicon glyphicon-plus-sign button" data-toggle="collapse" data-target="#collapseExampleTwo" aria-expanded="false" aria-controls="collapseExample">
+	 Shelf No SH025, Box No B02548</span>
+                        </button>
+                        <div class="collapse" id="collapseExampleTwo" style="margin-top: 5px;">
+                            <div class="card bg-info text-white">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">EC001</div>
+                                    <div class="panel-body">
+                                        <i class="glyphicon glyphicon-home"></i> Record Center: <b>Janata Tower</b>
+                                        <div style=" margin-left: 20px; padding: 10px;">
+                                            <i class="glyphicon glyphicon-th-list"></i>  Row No: <b>R-04</b> Column No: <b>CLM-0218</b>
+                                        </div>
+                                        <div style=" margin-left: 50px;">
+                                            <i class="glyphicon glyphicon-inbox"></i> Shelf No: <b>SH025</b>, Box No: <b>B02548</b>
+                                        </div>
+                                        <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#myModal">Full Specification</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Bill-001</td>
+                    <td>Electrical bill</td>
+                    <td>Bill</td>
+                    <td>01/06/2018</td>
+                    <td>
+                        <button><span  class="glyphicon glyphicon-plus-sign button" data-toggle="collapse" data-target="#collapseExampleThree" aria-expanded="false" aria-controls="collapseExample">
+	 Shelf No SH025, Box No B02548</span>
+                        </button>
+                        <div class="collapse" id="collapseExampleThree" style="margin-top: 5px;">
+                            <div class="card bg-info text-white">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">EC001</div>
+                                    <div class="panel-body">
+                                        <i class="glyphicon glyphicon-home"></i> Record Center: <b>Janata Tower</b>
+                                        <div style=" margin-left: 20px; padding: 10px;">
+                                            <i class="glyphicon glyphicon-th-list"></i>  Row No: <b>R-04</b> Column No: <b>CLM-0218</b>
+                                        </div>
+                                        <div style=" margin-left: 50px;">
+                                            <i class="glyphicon glyphicon-inbox"></i> Shelf No: <b>SH025</b>, Box No: <b>B02548</b>
+                                        </div>
+                                        <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#myModal">Full Specification</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+
+
+        </div>
+
+
+    </div>
+</div>
+<!-- /container -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Record Details</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <dl class="row">
+                            <dt class="col-sm-3">File Serial No</dt>
+                            <dd class="col-sm-9">SL02E1565646</dd>
+
+                            <dt class="col-sm-3">File Title</dt>
+                            <dd class="col-sm-9">
+                                <p>NCC Bank Billing Letter for May Month</p>
+                            </dd>
+
+                            <dt class="col-sm-3">Category</dt>
+                            <dd class="col-sm-9">Business Letters</dd>
+
+                            <dt class="col-sm-3 text-truncate">File Type</dt>
+                            <dd class="col-sm-9">Doc, Pdf and Csv</dd>
+
+                            <dt class="col-sm-3">Comment</dt>
+                            <dd class="col-sm-9">
+                                <dl class="row">
+                                    <dt class="col-sm-4">Letter for Manager</dt>
+                                    <dd class="col-sm-8">This is the letter what is about meeting. Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc.</dd>
+                                </dl>
+                            </dd>
+                        </dl>
+
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th class="text-nowrap" scope="row">Date</th>
+                                <th class="text-center">
+                                    Created Date<br>
+                                    <small>11/01/2018</small>
+                                </th>
+                                <th class="text-center">
+                                    Last Update<br>
+                                    <small>08/02/2018</small>
+                                </th>
+                                <th class="text-center">
+                                    Expired date<br>
+                                    <small>12/12/2020</small>
+                                </th>
+                                <th class="text-center">
+                                    Large<br>
+                                    <small>≥992px</small>
+                                </th>
+                                <th class="text-center">
+                                    Extra large<br>
+                                    <small>≥1200px</small>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th class="text-nowrap" scope="row">File Size</th>
+                                <td>None (auto)</td>
+                                <td>540px</td>
+                                <td>720px</td>
+                                <td>960px</td>
+                                <td>1140px</td>
+                            </tr>
+                            <tr>
+                                <th class="text-nowrap" scope="row">Location</th>
+                                <td><code>Country</code></td>
+                                <td><code>Zone</code></td>
+                                <td><code>Warehouse</code></td>
+                                <td><code>Center</code></td>
+                                <td><code>In Center</code></td>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <td><code>Bangladesh</code></td>
+                                <td><code>Dhaka</code></td>
+                                <td><code>Janata Tower</code></td>
+                                <td><code>FL032</code></td>
+                                <td><code>Row :RW02, Column: CLM251<br>Shelf No: SH02<br>Box No: BX02224 </code></td>
+                            </tr>
+                            <tr>
+                                <th class="text-nowrap" scope="row">Modify Count</th>
+                                <td colspan="5">12</td>
+                            </tr>
+                            <tr>
+                                <th class="text-nowrap" scope="row">Current Location</th>
+                                <td colspan="5">30px (15px on each side of a column)</td>
+                            </tr>
+                            <tr>
+                                <th class="text-nowrap" scope="row">Full Control</th>
+                                <td colspan="5">Yes</td>
+                            </tr>
+                            <tr>
+                                <th class="text-nowrap" scope="row">Other Copy</th>
+                                <td colspan="5">No</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Print</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
