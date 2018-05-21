@@ -16,17 +16,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 @Service
-public class DocServiceImpl implements DocService{
-	
+public class DocServiceImpl implements DocService {
+
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Value("${image.location}")
 	private String IMAGE_DIRECTORY;
 
-	
 	@Autowired
 	private AsyncFileService asyncService;
-	
+
 	@Autowired
 	private DocDao docDao;
 
@@ -91,26 +90,24 @@ public class DocServiceImpl implements DocService{
 		return docDao.getDocsById(id);
 	}
 
-
 	public Document getDocumentWithUser(int id) {
 		return docDao.findDocumentWithUser(id);
 	}
-	
-	public List<Document> getAllDocument(){
+
+	public List<Document> getAllDocument() {
 		return docDao.getAllDocument();
 	}
-	@Override
-	public void getFile(int fileId) {
-		try{
-			Document doc = docDao.getDocsById(fileId);
-			String filePath = IMAGE_DIRECTORY+File.separator+doc.getUrl();
-			//asyncService.getFileFromStorage("");
-			System.out.println(filePath);
-		}catch (Exception ex) {
-			
-		}
-		
-	}
 
+	@Override
+	public byte[] getFile(int fileId) {
+		try {
+			Document doc = docDao.getDocsById(fileId);
+			byte[] file = asyncService.getFileFromStorage(IMAGE_DIRECTORY+File.separator + doc.getName() + "." + doc.getType());
+			return file;
+		} catch (Exception ex) {
+
+		}
+		return null;
+	}
 
 }
