@@ -2,7 +2,7 @@ package com.csinfotechbd.home;
 
 import org.springframework.stereotype.Controller;
 
-@Controller
+//@Controller
 public class HomeController {
 	
 	public String getHomePage(){
