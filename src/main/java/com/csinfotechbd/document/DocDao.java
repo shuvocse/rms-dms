@@ -49,4 +49,12 @@ public class DocDao {
 		return docs;
 	}
 
+	public List<Document> getAllDocumentByUser(int userId) {
+		Criteria criteria = getSession().createCriteria(Document.class, "d");
+		criteria.createAlias("d.users", "u", JoinType.INNER_JOIN);
+		criteria.add(Restrictions.eq("u.userId", userId));
+		List<Document> docs = criteria.list();
+		return docs;
+	}
+
 }
