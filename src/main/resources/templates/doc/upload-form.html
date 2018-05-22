@@ -20,11 +20,13 @@
 
         <form id="frmLogin" th:action="@{/doc/upload}" method="post" enctype="multipart/form-data">
             <div class="form-group has-feedback">
+            <label>Document Name</label>
                 <input type="text" name="name" class="form-control"
                     autocomplete="off" ></input> <span
                     class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
+            <label>Document Category</label>
                 <input type="text" name="category" class="form-control"
                     ></input> <span
                     class="glyphicon glyphicon-lock form-control-feedback"></span>

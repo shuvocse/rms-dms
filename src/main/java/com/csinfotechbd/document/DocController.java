@@ -45,6 +45,11 @@ public class DocController {
 		}
 		return "/doc/upload-form";
 	}
+	
+	@GetMapping("/addRolePer/{id}")
+	public String addRolePermission(@PathVariable String id){
+		return "/doc/add-role-perm";
+	}
 
 	@GetMapping("/addUserPer/{id}")
 	public String addUserPermission(Model model, @PathVariable String id, HttpSession session, Principal principal) {
@@ -74,7 +79,7 @@ public class DocController {
 	}
 
 	@PostMapping("/addUserPer")
-	public String savePermission(DocUserDto docUserDto) {
+	public String savePermission(DocUserDto docUserDto, Principal principal) {
 		List<User> user = new ArrayList<>();
 		Iterator iterator = docUserDto.getUserId().entrySet().iterator();
 		while (iterator.hasNext()) {
@@ -101,7 +106,7 @@ public class DocController {
 
 	@GetMapping("/view/{fileId}")
 	@ResponseBody
-	public ResponseEntity<byte[]> getFile(@PathVariable(name = "fileId") int fileId) {
+	public ResponseEntity<byte[]> getFile(@PathVariable(name = "fileId") int fileId, Principal principal) {
 		byte[] file = docService.getFile(fileId);
 		
 		HttpHeaders headers = new HttpHeaders();

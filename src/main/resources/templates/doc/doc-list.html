@@ -3,17 +3,19 @@
 <head>
 <meta charset="ISO-8859-1"></meta>
 <title>Insert title here</title>
+
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
 </head>
 <body>
 
 <div class="row" style="margin-top: 120px">
-	<div class="col-md-8 col-md-offset-2">
-
-<a href="/doc/form" class="btn btn-info pull-right" role="button">Add Document</a>
+	<div class="col-md-10 col-md-offset-1"><h2>Document List</h2>
+<a href="/" class="btn btn-primary pull-left">Home</a>
+<a href="/doc/form" class="btn btn-primary pull-right" role="button">Add Document</a>
 <div >
 <table class="table table-condensed">
 	<thead>
@@ -21,7 +23,9 @@
 			<th>Doc Id</th>
 			<th>Doc Name</th>
 			<th>Doc Track No.</th>
-			<th>Doc URL</th>
+			<th>Doc Show</th>
+			<th>User Permission</th>
+			<th>RoleWise Permission </th>
 		</tr>
 	</thead>
 	<tbody>
@@ -29,8 +33,9 @@
 			<td th:text="${d?.docId}"></td>
 			<td th:text="${d?.name}"></td>
 			<td th:text="${d?.trackNo}"></td>
-			<td><a th:href="@{${d.url}}"><span th:text="${d?.url}"></span></a></td>
-			<td><a th:href="@{|/doc/addUserPer/${d?.docId}|}">Add User Permission</a></td>
+			<td><a class="btn btn-primary pull-right" th:href="@{${d.url}}"><span th:text="Preview"></span></a></td>
+			<td><a class="btn btn-primary pull-right" th:href="@{|/doc/addUserPer/${d?.docId}|}">Add User Permission</a></td>
+			<td><a class="btn btn-primary pull-right" th:href="@{|/doc/addRolePer/${d?.docId}|}">Add Rolebased Permission</a></td>
 		</tr>
 	</tbody>
 	
