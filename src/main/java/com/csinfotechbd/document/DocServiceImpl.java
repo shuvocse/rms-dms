@@ -110,4 +110,10 @@ public class DocServiceImpl implements DocService {
 		return null;
 	}
 
+	@Override
+	public void updateDoc(Document docs) {
+		docDao.updateDoc(docs);
+		
+	}
+
 }

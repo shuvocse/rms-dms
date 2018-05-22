@@ -89,7 +89,7 @@ public class DocController {
 		System.err.println(docUserDto.getUserId());
 		Document docs = docService.getDocsById(docUserDto.getDocId());
 		docs.setUsers(user);
-		docService.update(docs);
+		docService.updateDoc(docs);
 		return "redirect:/doc/list";
 	}
 

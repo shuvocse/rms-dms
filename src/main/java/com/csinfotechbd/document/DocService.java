@@ -14,4 +14,6 @@ public interface DocService extends BaseService{
 	public Document getDocumentWithUser(int id);
 	public List<Document> getAllDocument();
 
+	public void updateDoc(Document docs);
+
 }

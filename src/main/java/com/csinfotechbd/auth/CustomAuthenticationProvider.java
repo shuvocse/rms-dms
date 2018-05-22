@@ -42,7 +42,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
 		if (user == null)
 			return null;
-		else if (new BCryptPasswordEncoder().matches(password, user.getPassword()) && user.isActive() == true) {
+		else if (new BCryptPasswordEncoder().matches(password, user.getPassword()) && user.isActive()) {
 
 			//List<Role> roles = user.getRoles();
 			List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
