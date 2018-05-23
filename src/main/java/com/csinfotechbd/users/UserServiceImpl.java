@@ -1,6 +1,8 @@
 package com.csinfotechbd.users;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,6 +47,8 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	public User findById(int id){
+		UserService u = new UserServiceImpl();
+		//Map<String,String> m= new HashMap<String,String>();
 		return userDao.findById(id);
 	}
 	

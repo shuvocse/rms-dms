@@ -1,5 +1,6 @@
 package com.csinfotechbd.rms.setting.warehouse;
 
+import com.csinfotechbd.base.BaseProperty;
 import com.csinfotechbd.rms.setting.country.CountryEntity;
 import com.csinfotechbd.rms.setting.zone.ZoneEntity;
 import lombok.Getter;
@@ -9,7 +10,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "rms_setting_warehouse")
-public class WarehouseEntity {
+public class WarehouseEntity extends BaseProperty{
     @Getter
     @Setter
     @Id

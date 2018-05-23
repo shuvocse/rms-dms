@@ -43,6 +43,10 @@ public class ZoneEntity extends BaseProperty{
 
     public ZoneEntity(){}
 
+    public ZoneEntity(long id){
+        this.zoneId = id;
+    }
+
 
     public ZoneEntity(long id, String title,String description, String znUniCode, CountryEntity countryEntity) {
         this.title = title;
