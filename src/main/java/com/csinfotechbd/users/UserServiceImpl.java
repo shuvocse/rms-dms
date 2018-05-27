@@ -47,6 +47,18 @@ public class UserServiceImpl implements UserService{
 	public User findById(int id){
 		return userDao.findById(id);
 	}
+
+	@Override
+	public void saveUserPermisssion(UserPermission permission) {
+		userDao.saveUserPermissions(permission);
+	}
+
+	@Override
+	public void updateUserPermission(UserPermission permission) {
+		userDao.updateUserPermissions(permission);
+	}
+	
+	
 	
 
 }

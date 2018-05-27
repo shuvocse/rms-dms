@@ -15,6 +15,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import com.csinfotechbd.roles.Role;
 import com.csinfotechbd.users.User;
 import com.csinfotechbd.users.UserDao;
 
@@ -28,14 +29,13 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-
 		User user = null;
 		
 		String username = authentication.getName();
 		String password = authentication.getCredentials().toString();
 		
 		try{
-			user = userDao.findUserAndRolesByUsername(username);
+			user = userDao.findUserAndRolesPermissionByUsername(username);
 		}catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -44,12 +44,12 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 			return null;
 		else if (new BCryptPasswordEncoder().matches(password, user.getPassword()) && user.isActive()) {
 
-			//List<Role> roles = user.getRoles();
+			List<Role> roles = user.getRoles();
 			List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 
-			//for (Role role : roles) {
-				authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
-			//}
+			for (Role role : roles) {
+				authorities.add(new SimpleGrantedAuthority(role.getRole()));
+			}
 
 			return new UsernamePasswordAuthenticationToken(user, null, authorities);
 		}

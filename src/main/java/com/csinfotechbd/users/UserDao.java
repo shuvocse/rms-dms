@@ -8,6 +8,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.sql.JoinType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -37,12 +38,21 @@ public class UserDao {
 		return u;
 	}
 
-	public User findUserAndRolesByUsername(String username) {
+	public User findUserAndRolesPermissionByUsername(String username) {
 		Criteria criteria = getSession().createCriteria(User.class, "u");
-		/*criteria.createAlias("u.roles", "r", JoinType.INNER_JOIN);*/
+		criteria.createAlias("u.roles", "r", JoinType.INNER_JOIN);
+		criteria.createAlias("u.permissions", "p",JoinType.INNER_JOIN);
 		criteria.add(Restrictions.eq("u.username", username));
 		User u = (User) criteria.uniqueResult();
 		return u;
+	}
+
+	public void saveUserPermissions(UserPermission permission) {
+		getSession().save(permission);
+	}
+
+	public void updateUserPermissions(UserPermission permission) {
+		getSession().update(permission);
 	}
 
 }
