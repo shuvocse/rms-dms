@@ -57,9 +57,7 @@ public class User {
 	@ManyToMany(mappedBy = "users", cascade = CascadeType.DETACH)
 	private List<Document> documents = new ArrayList<>();
 
-	@OneToOne(optional = true, mappedBy = "user", targetEntity = UserPermission.class, cascade = CascadeType.ALL)
-	private UserPermission permissions;
-
+	
 	public User(int userId) {
 		this.userId = userId;
 	}

@@ -43,13 +43,18 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 		if (user == null)
 			return null;
 		else if (new BCryptPasswordEncoder().matches(password, user.getPassword()) && user.isActive()) {
-
-			List<Role> roles = user.getRoles();
+			List<Role> roles = null;
 			List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+			try {
+				roles = user.getRoles();
 
-			for (Role role : roles) {
-				authorities.add(new SimpleGrantedAuthority(role.getRole()));
-			}
+				for (Role role : roles) {
+					authorities.add(new SimpleGrantedAuthority(role.getRole()));
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}			
+			
 
 			return new UsernamePasswordAuthenticationToken(user, null, authorities);
 		}
