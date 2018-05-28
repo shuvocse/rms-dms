@@ -1,0 +1,19 @@
+.csi-add-permission {
+	background: #f1f1f1;
+	overflow: hidden;
+	display: block;
+	padding: 40px !important;
+}
+
+.csi-add-permission .single {
+	margin-bottom: 4px;
+}
+.csi-add-permission .single label:last-child{
+	margin-left: 30px;
+	font-weight: 400;
+	/* color: #555; */
+}
+.csi-add-permission h2 {
+	margin-top: 0;
+}
+
