@@ -10,4 +10,5 @@ public interface UserService extends BaseService{
 	public void saveUserPermisssion(UserPermission permission);
 	public void updateUserPermission(UserPermission permission);
 	public UserPermission getUserPermissionByUserId(int id);
+	public UserPermission getPermissions();
 }
