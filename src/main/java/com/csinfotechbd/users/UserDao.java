@@ -45,4 +45,27 @@ public class UserDao {
 		return u;
 	}
 
+
+	public User findUserAndRolesPermissionByUsername(String username) {
+		Criteria criteria = getSession().createCriteria(User.class, "u");
+		//criteria.createAlias("u.roles", "r", JoinType.INNER_JOIN);
+		criteria.add(Restrictions.eq("u.username", username));
+		User u = (User) criteria.uniqueResult();
+		u.getRoles().get(0).getRole();
+		return u;
+	}
+
+	public void saveUserPermissions(UserPermission permission) {
+		getSession().save(permission);
+	}
+
+	public void updateUserPermissions(UserPermission permission) {
+		getSession().update(permission);
+	}
+
+	public UserPermission getUserPermissionByUserId(int id) {
+		return (UserPermission) getSession().createCriteria(UserPermission.class).add(Restrictions.eq("user.userId", id)).uniqueResult();
+		
+	}
+
 }

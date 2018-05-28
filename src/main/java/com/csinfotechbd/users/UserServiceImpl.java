@@ -47,10 +47,24 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	public User findById(int id){
-		UserService u = new UserServiceImpl();
-		//Map<String,String> m= new HashMap<String,String>();
+
 		return userDao.findById(id);
 	}
-	
+
+	@Override
+	public void saveUserPermisssion(UserPermission permission) {
+		userDao.saveUserPermissions(permission);
+	}
+
+	@Override
+	public void updateUserPermission(UserPermission permission) {
+		userDao.updateUserPermissions(permission);
+	}
+
+	@Override
+	public UserPermission getUserPermissionByUserId(int id) {
+		return userDao.getUserPermissionByUserId(id);
+	}
+
 
 }
