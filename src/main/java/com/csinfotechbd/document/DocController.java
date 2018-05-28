@@ -101,6 +101,7 @@ public class DocController {
 	@GetMapping("/list")
 	public String getAllDocument(Model model) {
 		model.addAttribute("docList", docService.getAllDocument());
+		model.addAttribute("permission", userService.getPermissions());
 		return "/doc/doc-list";
 	}
 

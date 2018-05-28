@@ -17,27 +17,25 @@
 <a href="/" class="btn btn-primary pull-left">Home</a>
 
 <a href="/user/list" class="btn btn-primary pull-left">user</a>
-<a href="/doc/form" class="btn btn-primary pull-right" role="button">Add Document</a>
+<a th:if="${permission.docCreate}" href="/doc/form" class="btn btn-primary pull-right" role="button">Add Document</a>
 <div >
 <table class="table table-condensed">
 	<thead>
 		<tr>
-			<th>Doc Id</th>
-			<th>Doc Name</th>
-			<th>Doc Track No.</th>
-			<th>Doc Show</th>
-			<th>User Permission</th>
-			<th>RoleWise Permission </th>
+			
+			<th> Name</th>
+			<th>Track No.</th>
+			<th>Action</th>
+			
 		</tr>
 	</thead>
 	<tbody>
 		<tr th:each="d : ${docList}">
-			<td th:text="${d?.docId}"></td>
 			<td th:text="${d?.name}"></td>
 			<td th:text="${d?.trackNo}"></td>
-			<td><a class="btn btn-primary pull-right" th:href="@{${d.url}}"><span th:text="Preview"></span></a></td>
-			<td><a class="btn btn-primary pull-right" th:href="@{|/doc/addUserPer/${d?.docId}|}">Add User Permission</a></td>
-			<td><a class="btn btn-primary pull-right" th:href="@{|/doc/addRolePer/${d?.docId}|}">Add Rolebased Permission</a></td>
+			<td><a th:if="${permission.docView}" class="btn btn-primary" href="">View</a>
+			<a th:if="${permission.docPrint}" class="btn btn-primary" href="">Print</a>
+			<a th:if="${permission.docDownload}" class="btn btn-primary" href="">Download</a></td>
 		</tr>
 	</tbody>
 	

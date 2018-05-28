@@ -5,10 +5,12 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDao userDao;
 
@@ -45,9 +47,7 @@ public class UserServiceImpl implements UserService{
 	public List<User> findAllUser() {
 		return userDao.findAllUser();
 	}
-	
 	public User findById(int id){
-
 		return userDao.findById(id);
 	}
 
@@ -66,5 +66,14 @@ public class UserServiceImpl implements UserService{
 		return userDao.getUserPermissionByUserId(id);
 	}
 
+	@Override
+	public UserPermission getPermissions() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User u = (User) auth.getPrincipal();
+
+		UserPermission permission = userDao.getUserPermissionByUserId(u.getUserId());
+
+		return permission;
+	}
 
 }
