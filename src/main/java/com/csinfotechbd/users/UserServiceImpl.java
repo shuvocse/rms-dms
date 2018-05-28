@@ -57,6 +57,11 @@ public class UserServiceImpl implements UserService{
 	public void updateUserPermission(UserPermission permission) {
 		userDao.updateUserPermissions(permission);
 	}
+
+	@Override
+	public UserPermission getUserPermissionByUserId(int id) {
+		return userDao.getUserPermissionByUserId(id);
+	}
 	
 	
 	

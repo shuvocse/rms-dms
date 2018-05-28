@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1"></meta>
-<title>Insert title here</title>
+<title>User List</title>
 
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
@@ -13,31 +13,28 @@
 <body>
 
 <div class="row" style="margin-top: 120px">
-	<div class="col-md-10 col-md-offset-1"><h2>Document List</h2>
+	<div class="col-md-8 col-md-offset-2"><h2>User List</h2>
 <a href="/" class="btn btn-primary pull-left">Home</a>
-<a href="/user/list" class="btn btn-primary pull-left">user</a>
-<a href="/doc/form" class="btn btn-primary pull-right" role="button">Add Document</a>
-<div >
+<div>
 <table class="table table-condensed">
 	<thead>
 		<tr>
-			<th>Doc Id</th>
-			<th>Doc Name</th>
-			<th>Doc Track No.</th>
-			<th>Doc Show</th>
-			<th>User Permission</th>
-			<th>RoleWise Permission </th>
+			
+			<th>Name</th>
+			<th>Designation</th>
+			<th>User Name</th>
+			<th>Add Permission</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr th:each="d : ${docList}">
-			<td th:text="${d?.docId}"></td>
-			<td th:text="${d?.name}"></td>
-			<td th:text="${d?.trackNo}"></td>
-			<td><a class="btn btn-primary pull-right" th:href="@{${d.url}}"><span th:text="Preview"></span></a></td>
-			<td><a class="btn btn-primary pull-right" th:href="@{|/doc/addUserPer/${d?.docId}|}">Add User Permission</a></td>
-			<td><a class="btn btn-primary pull-right" th:href="@{|/doc/addRolePer/${d?.docId}|}">Add Rolebased Permission</a></td>
+		<tr th:each="u : ${userList}">
+			<td th:text="${u.firstName}"></td>
+			<td></td>
+			<td th:text="${u.username}"></td>
+			<td><a class="btn btn-primary pull-left" th:href="@{|/user/permission/${u.userId}|}">Add Permission</a></td>
+			
 		</tr>
+		
 	</tbody>
 	
 </table>
