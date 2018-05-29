@@ -105,17 +105,36 @@ public class DocController {
 		return "/doc/doc-list";
 	}
 
-	@GetMapping("/view/{fileId}")
+    @GetMapping("/view/{fileId}")
+	public String view(Model model, @PathVariable(name = "fileId") int fileId, Principal principal) {
+		Document doc = docService.getDocsById(fileId);
+		model.addAttribute("doc", doc);
+		return "/doc/doc-view";
+	}
+
+
+	@GetMapping("/download/{fileId}")
 	@ResponseBody
-	public ResponseEntity<byte[]> getFile(@PathVariable(name = "fileId") int fileId, Principal principal) {
+	public ResponseEntity<byte[]> download(@PathVariable(name = "fileId") int fileId, Principal principal) {
 		byte[] file = docService.getFile(fileId);
-		
+		Document doc = docService.getDocsById(fileId);
 		HttpHeaders headers = new HttpHeaders();
 	    headers.setContentType(MediaType.parseMediaType("application/pdf"));
-	    String filename = "output.pdf";
+	    String filename = doc.getName()+"."+doc.getType();
 	    headers.setContentDispositionFormData(filename, filename);
 	    headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
+		return new ResponseEntity<byte[]>(file, headers, HttpStatus.OK);
+	}
 
+	@GetMapping("/print/{fileId}")
+	@ResponseBody
+	public ResponseEntity<byte[]> print(@PathVariable(name = "fileId") int fileId, Principal principal) {
+		byte[] file = docService.getFile(fileId);
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.parseMediaType("application/pdf"));
+		String filename = "output.pdf";
+		headers.setContentDispositionFormData(filename, filename);
+		headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
 		return new ResponseEntity<byte[]>(file, headers, HttpStatus.OK);
 	}
 

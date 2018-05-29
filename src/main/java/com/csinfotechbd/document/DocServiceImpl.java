@@ -103,7 +103,7 @@ public class DocServiceImpl implements DocService {
 	public byte[] getFile(int fileId) {
 		try {
 			Document doc = docDao.getDocsById(fileId);
-			byte[] file = asyncService.getFileFromStorage(IMAGE_DIRECTORY+File.separator + doc.getName() + "." + doc.getType());
+			byte[] file = asyncService.getFileFromStorage(IMAGE_DIRECTORY+File.separator + doc.getSavedFileName() + "." + doc.getType());
 			return file;
 		} catch (Exception ex) {
 

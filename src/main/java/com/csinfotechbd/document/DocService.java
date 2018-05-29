@@ -6,7 +6,7 @@ import com.csinfotechbd.base.BaseService;
 
 public interface DocService extends BaseService{
 	
-	public String saveFile(DocBearer bearer);
+	public String  saveFile(DocBearer bearer);
 
 	public byte[] getFile(int fileId);
 

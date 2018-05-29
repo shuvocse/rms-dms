@@ -13,35 +13,18 @@
 <body>
 
 <div class="row" style="margin-top: 120px">
-	<div class="col-md-10 col-md-offset-1"><h2>Document List</h2>
-<a href="/" class="btn btn-primary pull-left">Home</a>
+	<div class="col-md-10 col-md-offset-1"><h2>Document View (Under construction)</h2>
+    <a href="/" class="btn btn-primary pull-left">Home</a>
 
-<a href="/user/list" class="btn btn-primary pull-left">user</a>
-<a th:if="${permission?.docCreate}" href="/doc/form" class="btn btn-primary pull-right" role="button">Add Document</a>
-<div >
-<table class="table table-condensed">
-	<thead>
-		<tr>
-			
-			<th> Name</th>
-			<th>Track No.</th>
-			<th>Action</th>
-			
-		</tr>
-	</thead>
-	<tbody>
-		<tr th:each="d : ${docList}">
-			<td th:text="${d?.name}"></td>
-			<td th:text="${d?.trackNo}"></td>
-			<td><a th:if="${permission?.docView}" class="btn btn-primary" th:href="@{|/doc/view/${d?.docId}}|">View</a>
-			<a th:if="${permission?.docPrint}" class="btn btn-primary" th:href="@{|/doc/print/${d?.docId}}|">Print</a>
-			<a th:if="${permission?.docDownload}" class="btn btn-primary" th:href="@{|/doc/download/${d?.docId}}|">Download</a></td>
-		</tr>
-	</tbody>
-	
-</table>
+		<div class="col-md-6 col-md-offset-3">
+
+		<!-- <iframe   width="500" height="600">
+
+			</iframe>-->
+		</div>
+
+
 </div>
-	</div>
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

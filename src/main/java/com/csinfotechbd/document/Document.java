@@ -38,6 +38,11 @@ public class Document extends BaseProperty {
 	@Setter
 	@Getter
 	private String name;
+
+	@Setter
+	@Getter
+	private String savedFileName;
+
 	@Setter
 	@Getter
 	private String type;
@@ -68,10 +73,11 @@ public class Document extends BaseProperty {
 			@JoinColumn(name = "userId") })
 	private List<User> users = new ArrayList<>();
 
-	public Document(Integer docId, String name, String type, long size, String trackNo, String url,
+	public Document(Integer docId, String name, String savedFileName, String type, long size, String trackNo, String url,
 			DocCategory docCategory) {
 		this.docId = docId;
 		this.name = name;
+		this.savedFileName = savedFileName;
 		this.type = type;
 		this.size = size;
 		this.trackNo = trackNo;
